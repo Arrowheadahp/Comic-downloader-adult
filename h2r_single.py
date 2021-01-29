@@ -17,20 +17,21 @@ def dwnldr3(url):
             img = Image.open(picreq)
             piclist.append(img.convert('RGB'))
               
-            time.sleep(5)
+            time.sleep(1)
             t=10
             i+=1
             if i>10000:
                 break
         except:
-            time.sleep(5)
+            time.sleep(2)
             t-=1
-    piclist[0].save(r'1111111.pdf', save_all = True,
+    piclist[0].save('doujinshi/h2r_' + murl.split('/')[-3]+'-'+murl.split('/')[-2] + '.pdf',
+                    save_all = True,
                     append_images = piclist)
 
 
 url = 'https://static.hentaicdn.com/hentai/14392/1/hcdn0009.jpg'
-dwnldr3(input())
+dwnldr3(input('Enter url of any page: '))
 
 
 
