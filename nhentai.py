@@ -4,8 +4,8 @@ from PIL import Image
 import time
 
 
-url = 'https://cdn.dogehls.xyz/galleries/1803120/2.jpg'
-nhserver = 'https://cdn.dogehls.xyz/galleries/'
+url = 'https://i3.nhentai.net/galleries/1564981/2.jpg'
+nhserver = 'https://i3.nhentai.net/galleries/'
 
 
 def getpic(picurl):
@@ -16,13 +16,14 @@ def getpic(picurl):
     picreq = urlopen(req)
     
     img = Image.open(picreq)
-    time.sleep(2)
+    time.sleep(1)
 
     return img.convert('RGB')
 
 def dwnldr4(sauce):
     galleryurl = nhserver + sauce + '/'
     piclist = []
+    name = input('Enter name: ')
 
     i = 0
     while True:
@@ -43,20 +44,12 @@ def dwnldr4(sauce):
 
         piclist.append(pic)
 
-    piclist[0].save('doujinshi/' + sauce + '.pdf', save_all = True,
-                    append_images = piclist)
+    piclist[0].save(r'D:\Media\doujinshi\\' + name + '.pdf', save_all = True,
+                    append_images = piclist[1:])
             
         
 
 ##dwnldr4(input('Enter sauce: '))
-dwnldr4('1803120')
+dwnldr4(input('Enter sauce: '))
 
 ##getpic(url)
-
-
-
-
-
-
-
-
